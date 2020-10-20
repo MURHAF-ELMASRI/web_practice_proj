@@ -1,3 +1,6 @@
+var pwc=document.getElementsByClassName('play_with_code')[0];
+pwc.innerHTML=Location;
+
 var canvas =document.getElementById("canvas");
 /** @type {CanvasRenderingContext2D} */
 var ctx=canvas.getContext('2d');
@@ -44,8 +47,14 @@ function update(){
     ball.y+=dy;
     console.log(ball.x,ball.y);
     
-    draw_ball()
+    
+}
+function write_diff(){
+    ctx.clearRect(0,0,width,height);
+    ctx.font="20px Arial";
+    ctx.fillText(Location+window.screenX+", "+screenY,40,40);
+
 }
 
 console.log("width "+width+"height"+height);
-setInterval(update,2);
+setInterval(write_diff,10);
